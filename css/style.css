@@ -21,3 +21,12 @@
 #getusermedia-page canvas {
     display: none;
 }
+
+/* Modernizr fix*/
+math {
+    display: none;
+}
+
+#codebar-text i {
+    font-size: 30px;
+}

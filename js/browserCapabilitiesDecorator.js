@@ -15,13 +15,10 @@ BrowserCapabilitiesHtmlTableDecorator.prototype.getResults = function() {
         var td3 = document.createElement('td');
         var td1_text = document.createTextNode("Feature");
         var td2_text = document.createTextNode("Check");
-        //var td3_text = document.createTextNode("Demo");
         td1.appendChild(td1_text);
         td2.appendChild(td2_text);
-        //td3.appendChild(td3_text);
         row.appendChild(td1);
         row.appendChild(td2);
-        //row.appendChild(td3);
         thead.appendChild(row);
         table.appendChild(thead);
         var tbody = document.createElement('tbody');
@@ -41,22 +38,18 @@ BrowserCapabilitiesHtmlTableDecorator.prototype.getResults = function() {
         var td1 = document.createElement('td');
         var td2 = document.createElement('td');
         var td1_text = document.createTextNode(result['feature']);
-        var td2_text = document.createTextNode(result['checked']);
+        var td2_content = document.createElement('i');
+        if (result['checked']) {
+            td2_content.setAttribute('class', 'fa fa-check');
+        } else {
+            td2_content.setAttribute('class', 'fa fa-times');
+        }
+        
+        
         td1.appendChild(td1_text);
-        td2.appendChild(td2_text);
+        td2.appendChild(td2_content);
         row.appendChild(td1);
         row.appendChild(td2);
-        /*if (result['demo'] && result['checked']) {
-            var td3_text = document.createTextNode('demo');
-            var a = document.createElement('a');
-            a.setAttribute('href', '#test');
-            var td3 = document.createElement('td');
-            a.appendChild(td3_text);
-            td3.appendChild(a);
-            row.appendChild(td3);
-        } else {
-            td2.setAttribute('colspan', 2)
-        }*/
 
         return row;
     }
@@ -89,8 +82,15 @@ BrowserCapabilitiesHtmlListDecorator.prototype.getResults = function() {
 
     var addElementToList = function(result) {
         var li = document.createElement('li');
-        var text =  document.createTextNode(result['feature']+' - '+result['checked']);
+        var i = document.createElement('i');
+        if (result['checked']) {
+            i.setAttribute('class', 'fa fa-check');
+        } else {
+            i.setAttribute('class', 'fa fa-times');
+        }
+        var text =  document.createTextNode(result['feature']+' ');
         li.appendChild(text);
+        li.appendChild(i);
 
         return li;
     }

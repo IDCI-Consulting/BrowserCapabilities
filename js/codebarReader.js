@@ -23,7 +23,7 @@ FlipWorker.onmessage = receiveMessage;
 
 if(takePicture && showPicture) {
     takePicture.onchange = function (event) {
-        var files = event.target.files
+        var files = event.target.files;
         if (files && files.length > 0) {
             file = files[0];
             try {
@@ -51,7 +51,7 @@ if(takePicture && showPicture) {
 }
 
 function DecodeBar(){
-    Result.innerHTML="";
+    Result.innerHTML='<i class="fa fa-spinner fa-spin"></i>';
     showPicture.onload = function(){
         ctx.drawImage(showPicture,0,0,Canvas.width,Canvas.height);
         resultArray = [];
