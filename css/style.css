@@ -1,0 +1,23 @@
+/* First page */
+
+#first-page table thead {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+
+/* Demo getusermedia */
+
+#getusermedia-page .photo-frame {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #ccc;
+    width: 320px;
+    height: 240px;
+}
+
+#getusermedia-page img {
+    display: block;
+}
+
+#getusermedia-page canvas {
+    display: none;
+}
