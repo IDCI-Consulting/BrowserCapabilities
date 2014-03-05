@@ -15,8 +15,14 @@
             <div data-role="content">
                 <div id="checklist"></div>
                 <div>
-                    <a href="#scan-code-page">Démo scan de code barre</a><br/>
-                    <a href="#getusermedia-page">Démo getusermedia</a>
+                    <div>
+                        <h4>Viewport</h4>
+                        <ul class="viewport"></ul>
+                    </div>
+                    <div>
+                        <a href="#scan-code-page">Démo scan de code barre</a><br/>
+                        <a href="#getusermedia-page">Démo getusermedia</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,7 +32,6 @@
                 <img width="320" height="240" src="" id="picture" class="photo-frame" />
                 <input id="take-picture" type="file" accept="image/*;capture=camera"/>
                 <p id="codebar-text"></p>
-                
             </div>
         </div>
         <div id="getusermedia-page" data-role="page" data-add-back-btn="true">
@@ -50,8 +55,11 @@
     <script type="text/javascript" src="js/codebarReader.js"></script>
 
     <script type="text/javascript">
-        // infos on sources
-        //UserMediaManager.getSourcesInfo();
+        // viewport infos
+        jQuery('.viewport').append('<li>Largeur du viewport : '+document.documentElement.clientWidth+'</li>');
+        jQuery('.viewport').append('<li>Longueur du viewport : '+document.documentElement.clientHeight+'</li>');
+        jQuery('.viewport').append('<li>Largeur du viewport visuel : '+window.innerWidth+'</li>');
+        jQuery('.viewport').append('<li>Longueur du viewport visuel : '+window.innerHeight+'</li>');
 
         // display the checklist
         var bc = new BrowserCapabilities([
@@ -83,5 +91,6 @@
                 UserMediaManager.takeSnapshot(canvas, video, localMediaStream);
             }
         );
+
     </script>
 </html>
