@@ -15,9 +15,7 @@
             <div data-role="content">
                 <div id="checklist"></div>
                 <div>
-                    <div>
-                        <h4>Viewport</h4>
-                        <ul class="viewport"></ul>
+                    <div class="viewport">
                     </div>
                     <div>
                         <a href="#scan-code-page">Démo scan de code barre</a><br/>
@@ -48,6 +46,7 @@
     <script type="text/javascript" src="js/modernizr.js"></script>
     <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+    <script type="text/javascript" src="js/browserViewport.js"></script>
     <script type="text/javascript" src="js/browserCapabilities.js"></script>
     <script type="text/javascript" src="js/browserCapabilitiesDecorator.js"></script>
     <script type="text/javascript" src="js/userMediaManager.js"></script>
@@ -56,10 +55,8 @@
 
     <script type="text/javascript">
         // viewport infos
-        jQuery('.viewport').append('<li>Largeur du viewport : '+document.documentElement.clientWidth+'</li>');
-        jQuery('.viewport').append('<li>Longueur du viewport : '+document.documentElement.clientHeight+'</li>');
-        jQuery('.viewport').append('<li>Largeur du viewport visuel : '+window.innerWidth+'</li>');
-        jQuery('.viewport').append('<li>Longueur du viewport visuel : '+window.innerHeight+'</li>');
+        var viewportTable = BrowserViewport.getResultsAsHtmlTable();
+        document.querySelector('.viewport').appendChild(viewportTable);
 
         // display the checklist
         var bc = new BrowserCapabilities([
